@@ -24,7 +24,7 @@ composer format                        # Fix code style with Laravel Pint
 ## Requirements & CI
 
 - PHP ^8.4, Laravel (illuminate/contracts) ^11 / ^12 / ^13.
-- CI (`.github/workflows/run-tests.yml`) tests PHP 8.3–8.5 against Laravel 12/13 on Ubuntu and Windows, prefer-lowest and prefer-stable.
+- CI (`.github/workflows/run-tests.yml`) tests PHP 8.4–8.5 against Laravel 12/13 on Ubuntu and Windows, prefer-lowest and prefer-stable. All GitHub Actions must be pinned to full-length commit SHAs (org policy).
 - PHPUnit runs with random execution order and fails on warnings/risky tests; tests must not produce output.
 
 ## Architecture
