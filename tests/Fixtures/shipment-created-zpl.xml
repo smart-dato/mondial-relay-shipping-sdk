@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ShipmentCreationResponse xmlns="http://www.example.org/Response">
+  <OutputOptions>
+    <OutputFormat>Generic_ZPL_10x15_200dpi</OutputFormat>
+    <OutputType>ZplCode</OutputType>
+  </OutputOptions>
+  <ShipmentsList>
+    <Shipment ShipmentNumber="96408888">
+      <LabelList>
+        <Label>
+          <RawContent />
+          <Output>XlhBXkZEVGVzdF5YWg==</Output>
+        </Label>
+      </LabelList>
+    </Shipment>
+  </ShipmentsList>
+  <StatusList />
+</ShipmentCreationResponse>

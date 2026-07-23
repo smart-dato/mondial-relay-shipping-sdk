@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ShipmentCreationResponse xmlns="http://www.example.org/Response">
+  <ShipmentsList />
+  <StatusList>
+    <Status code="10001" level="Critical Error" message="Invalid user and/or password. Check the authentication information." />
+  </StatusList>
+</ShipmentCreationResponse>

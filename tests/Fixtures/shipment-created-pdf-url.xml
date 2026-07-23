@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ShipmentCreationResponse xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.example.org/Response">
+  <Context>
+    <Login>BDTEST@business-api.mondialrelay.com</Login>
+    <Password>xxxx</Password>
+    <CustomerId>BDTEST</CustomerId>
+    <Culture>fr-FR</Culture>
+    <VersionAPI>1.0</VersionAPI>
+  </Context>
+  <OutputOptions>
+    <OutputFormat>10x15</OutputFormat>
+    <OutputType>PdfUrl</OutputType>
+  </OutputOptions>
+  <ShipmentsList>
+    <Shipment ShipmentNumber="96408887">
+      <LabelList>
+        <Label>
+          <RawContent>
+            <LabelValues Key="MR.Expedition.NumeroExpedition" Value="96408887" />
+            <LabelValues Key="MR.PlanTri.Mode" Value="24R" />
+            <Barcodes>
+              <Barcode Type="Code128" DisplayedValue="11964088870301006623669740" Value="11964088870301006623669740" CarrierCode="MR" />
+            </Barcodes>
+          </RawContent>
+          <Output>http://connect.mondialrelay.com//BDTEST/etiquette/GetStickersExpeditionsAnonyme?ens=BDTEST&amp;expedition=96408887&amp;lg=fr-FR&amp;format=10x15&amp;crc=XXXXXXXX</Output>
+        </Label>
+      </LabelList>
+    </Shipment>
+  </ShipmentsList>
+  <StatusList />
+</ShipmentCreationResponse>

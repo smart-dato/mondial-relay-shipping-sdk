@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ShipmentCreationResponse xmlns="http://www.example.org/Response">
+  <ShipmentsList>
+    <Shipment ShipmentNumber="96408889">
+      <LabelList>
+        <Label>
+          <RawContent />
+          <Output>http://connect.mondialrelay.com//BDTEST/etiquette/GetStickersExpeditionsAnonyme?expedition=96408889</Output>
+          <StatusList>
+            <Status code="10014" level="Warning" message="Invalid order number. Statement ignored." />
+          </StatusList>
+        </Label>
+      </LabelList>
+    </Shipment>
+  </ShipmentsList>
+  <StatusList />
+</ShipmentCreationResponse>

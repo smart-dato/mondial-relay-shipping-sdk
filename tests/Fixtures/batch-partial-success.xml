@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ShipmentCreationResponse xmlns="http://www.example.org/Response">
+  <ShipmentsList>
+    <Shipment ShipmentNumber="96408887">
+      <LabelList>
+        <Label>
+          <RawContent />
+          <Output>http://connect.mondialrelay.com//BDTEST/etiquette/GetStickersExpeditionsAnonyme?expedition=96408887</Output>
+        </Label>
+      </LabelList>
+    </Shipment>
+    <Shipment>
+      <StatusList>
+        <Status code="10023" level="Error" message="No delivery mode defined in the request." />
+      </StatusList>
+    </Shipment>
+  </ShipmentsList>
+  <StatusList />
+</ShipmentCreationResponse>

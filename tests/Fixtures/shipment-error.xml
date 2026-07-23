@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ShipmentCreationResponse xmlns="http://www.example.org/Response">
+  <ShipmentsList>
+    <Shipment>
+      <StatusList>
+        <Status code="10033" level="Error" message="No weight defined in the parcel element." />
+      </StatusList>
+    </Shipment>
+  </ShipmentsList>
+  <StatusList />
+</ShipmentCreationResponse>
