@@ -163,7 +163,7 @@ On a connection failure `response` and `status` are `null` but the request XML i
 All exceptions extend `SmartDato\MondialRelayShipping\Exceptions\MondialRelayShippingException`:
 
 - `InvalidShipmentException` — the shipment breaks a documented constraint before any HTTP call (missing relay location, parcel under 10 g, multi-parcel on a single-parcel mode, …)
-- `InvalidConfigurationException` — missing/malformed credentials, customer id, or culture
+- `InvalidConfigurationException` — missing/malformed credentials, customer id, or culture; thrown on the first API call, not when the client is resolved, so tooling that instantiates all container bindings (`ide-helper:generate`, `artisan about`) works without credentials
 - `RequestFailedException` — connection failure or non-2xx HTTP response
 - `InvalidResponseException` — the API returned unparseable XML
 - `CriticalErrorException` — the API rejected the whole request (e.g. authentication); inspect `$exception->statuses`

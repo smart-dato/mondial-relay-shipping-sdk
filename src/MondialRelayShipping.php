@@ -32,15 +32,7 @@ class MondialRelayShipping
         private readonly bool $sandbox = true,
         private readonly ?OutputOptions $defaultOutput = null,
         private readonly int $timeout = 30,
-    ) {
-        if (preg_match('/^[0-9A-Z]{2}[0-9A-Z]{6}$/', $this->customerId) !== 1) {
-            throw InvalidConfigurationException::invalidCustomerId($this->customerId);
-        }
-
-        if (preg_match('/^[a-z]{2}-[A-Z]{2}$/', $this->culture) !== 1) {
-            throw InvalidConfigurationException::invalidCulture($this->culture);
-        }
-    }
+    ) {}
 
     public function createShipment(Shipment $shipment, ?OutputOptions $output = null): CreatedShipment
     {
@@ -58,6 +50,8 @@ class MondialRelayShipping
     /** @param array<int, Shipment> $shipments */
     public function createShipments(array $shipments, ?OutputOptions $output = null): ShipmentBatchResult
     {
+        $this->guardConfiguration();
+
         $output ??= $this->defaultOutput();
 
         $xml = new ShipmentRequestBuilder(
@@ -99,5 +93,33 @@ class MondialRelayShipping
     private function defaultOutput(): OutputOptions
     {
         return $this->defaultOutput ?? new OutputOptions(OutputType::PdfUrl, OutputFormat::Label10x15);
+    }
+
+    /**
+     * Validated on the first API call instead of in the constructor so the
+     * container singleton can be resolved without credentials (ide-helper,
+     * `artisan about`, CI without secrets).
+     */
+    private function guardConfiguration(): void
+    {
+        if ($this->login === '') {
+            throw InvalidConfigurationException::missingCredential('login');
+        }
+
+        if ($this->password === '') {
+            throw InvalidConfigurationException::missingCredential('password');
+        }
+
+        if ($this->customerId === '') {
+            throw InvalidConfigurationException::missingCredential('customer_id');
+        }
+
+        if (preg_match('/^[0-9A-Z]{2}[0-9A-Z]{6}$/', $this->customerId) !== 1) {
+            throw InvalidConfigurationException::invalidCustomerId($this->customerId);
+        }
+
+        if (preg_match('/^[a-z]{2}-[A-Z]{2}$/', $this->culture) !== 1) {
+            throw InvalidConfigurationException::invalidCulture($this->culture);
+        }
     }
 }

@@ -2,6 +2,10 @@
 
 All notable changes to `mondial-relay-shipping-sdk` will be documented in this file.
 
+## 0.0.2 - 2026-07-23
+
+- Configuration validation (credentials, customer id, culture) now runs on the first API call instead of at container resolution, so tooling that instantiates all facades (`ide-helper:generate`, `artisan about`, CI without secrets) no longer fails when credentials are absent
+
 ## 0.0.1 - 2026-07-23
 
 Initial release.
