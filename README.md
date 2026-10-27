@@ -88,6 +88,7 @@ $created->warnings();            // non-blocking API warnings
 | `DeliveryMode::MerchantDelivery` | LCC | Delivery back to the merchant (returns) |
 | `CollectionMode::MerchantCollection` | CCC | Collected at the merchant (outbound) |
 | `CollectionMode::PointRelaisCollection` | REL | Dropped off at a Point Relais® (returns) |
+| `CollectionMode::PointRelaisReturn` | 24R | Consumer return dropped off at a Point Relais®, combine with `DeliveryMode::MerchantDelivery` (LCC) |
 
 ### Label output
 

@@ -3,6 +3,7 @@
 use SmartDato\MondialRelayShipping\Data\OutputOptions;
 use SmartDato\MondialRelayShipping\Data\ShipmentOption;
 use SmartDato\MondialRelayShipping\Data\ShipmentValue;
+use SmartDato\MondialRelayShipping\Enums\CollectionMode;
 use SmartDato\MondialRelayShipping\Enums\DeliveryMode;
 use SmartDato\MondialRelayShipping\Enums\OutputFormat;
 use SmartDato\MondialRelayShipping\Enums\OutputType;
@@ -68,6 +69,22 @@ it('renders delivery and collection modes as attributes', function () {
     expect($delivery->getAttribute('Mode'))->toBe('24R')
         ->and($delivery->getAttribute('Location'))->toBe('FR-66974')
         ->and($collection->getAttribute('Mode'))->toBe('CCC')
+        ->and($collection->getAttribute('Location'))->toBe('');
+});
+
+it('renders a relay point return as 24R collection with LCC delivery', function () {
+    $xpath = requestXpath(buildXml([validShipment([
+        'deliveryMode' => DeliveryMode::MerchantDelivery,
+        'collectionMode' => CollectionMode::PointRelaisReturn,
+        'deliveryLocation' => null,
+    ])]));
+
+    $delivery = $xpath->query('//r:Shipment/r:DeliveryMode')->item(0);
+    $collection = $xpath->query('//r:Shipment/r:CollectionMode')->item(0);
+
+    expect($delivery->getAttribute('Mode'))->toBe('LCC')
+        ->and($delivery->getAttribute('Location'))->toBe('')
+        ->and($collection->getAttribute('Mode'))->toBe('24R')
         ->and($collection->getAttribute('Location'))->toBe('');
 });
 
